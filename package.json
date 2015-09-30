@@ -1,0 +1,30 @@
+{
+  "name": "strapi-docs",
+  "version": "1.0.0",
+  "description": "The Strapi documentation",
+  "homepage": "http://strapi.io",
+  "keywords": [
+    "docs",
+    "strapi"
+  ],
+  "author": {
+    "email": "hack@wistity.co",
+    "name": "Wistity team",
+    "url": "http://wistity.co"
+  },
+  "maintainers": [
+    {
+      "name": "Wistity team",
+      "email": "hack@wistity.co",
+      "url": "http://wistity.co"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wisityhq/strapi-docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wisityhq/strapi/issues"
+  },
+  "license": "MIT"
+}
