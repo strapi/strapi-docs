@@ -19,6 +19,8 @@ Table of contents:
 - [Context](files/context.md)
 - [Request](files/request.md)
 - [Response](files/response.md)
+- [Users](files/users.md)
+- [Admin](files/admin.md)
 
 ## Resources
 
