@@ -17,6 +17,12 @@ To install the latest stable release with the npm command-line tool:
 $ npm install strapi -g
 ```
 
+First, you need to link your machine to your Strapi account:
+
+```bash
+$ strapi login
+```
+
 You now are able to use the Strapi CLI. Simply create your first application and start the server:
 
 ```bash
