@@ -14,6 +14,8 @@
     "logging",
     "context",
     "request",
-    "response"
+    "response",
+    "users",
+    "admin"
   ]
 }
