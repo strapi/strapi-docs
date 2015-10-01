@@ -2,6 +2,17 @@
 
 Strapi comes with a convenient command-line tool to quickly get your application scaffolded and running.
 
+## Login
+
+```bash
+$ strapi login
+```
+
+Ask your Strapi credentials to link your new applications on your machine to
+the Strapi dashboard aiming to have a perfect workflow while you build APIs.
+
+Go to [the Strapi dashboard](http://dashboard.strapi.io/) to start the experience.
+
 ## Create a new project
 
 ```bash
@@ -50,25 +61,6 @@ $ strapi generate api <apiName>
 
 Generate a complete API with controllers, models and routes.
 
-## Login to the Strapi dashboard
-
-```bash
-$ strapi login
-```
-
-Ask your Strapi credentials to link your new applications on your machine to
-the Strapi dashboard aiming to have a perfect workflow while you build APIs.
-
-Go to [the Strapi dashboard](http://dashboard.strapi.io/) to start the experience.
-
-## Logout from the Strapi dashboard
-
-```bash
-$ strapi logout
-```
-
-If you don't want to be logged in to the Strapi dashboard anymore.
-
 ## Print the Strapi version
 
 ```bash
@@ -76,3 +68,11 @@ $ strapi version
 ```
 
 Output the current globally installed Strapi version.
+
+## Logout
+
+```bash
+$ strapi logout
+```
+
+If you don't want to be logged in to the Strapi dashboard anymore.
