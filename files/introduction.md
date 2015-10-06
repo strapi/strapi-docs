@@ -17,7 +17,9 @@ To install the latest stable release with the npm command-line tool:
 $ npm install strapi -g
 ```
 
-First, you need to link your machine to your Strapi account:
+First, you need to link your machine to your Strapi account to get access to all features offered by the Strapi ecosystem. This is optional, you don’t have to subscribe to use Strapi framework.
+
+To create an account, [click here](http://dashboard.strapi.io). This dashboard is dedicated to developers for build applications without write a single line of code.
 
 ```bash
 $ strapi login
@@ -33,7 +35,9 @@ $ strapi start
 
 At this point, if you visit [http://localhost:1337/](http://localhost:1337/) you will see the default home page.
 
-The admin dashboard is available at [http://localhost:1337/admin/](http://localhost:1337/admin/).
+The local admin dashboard is available at [http://localhost:1337/admin/](http://localhost:1337/admin/). This dashboard offers the opportunity to manage your data easily. You don't have to be a developer to use it.
+
+NB: The first registered user is setup as root.
 
 ## Key-features
 
