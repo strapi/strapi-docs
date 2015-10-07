@@ -8,10 +8,10 @@ Strapi comes with a convenient command-line tool to quickly get your application
 $ strapi login
 ```
 
-Ask your Strapi credentials to link your new applications on your machine to
-the Strapi dashboard aiming to have a perfect workflow while you build APIs.
+Ask your Strapi Studio credentials to link your new applications on your machine to
+the Strapi Studio aiming to have a perfect workflow while you build APIs.
 
-Go to [the Strapi dashboard](http://dashboard.strapi.io/) to start the experience.
+Go to [the Strapi Studio](http://studio.strapi.io/) to start the experience.
 
 ## Create a new project
 
@@ -75,4 +75,4 @@ Output the current globally installed Strapi version.
 $ strapi logout
 ```
 
-If you don't want to be logged in to the Strapi dashboard anymore.
+If you don't want to be logged in to the Strapi Studio anymore.
