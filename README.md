@@ -21,6 +21,7 @@ Table of contents:
 - [Response](files/response.md)
 - [Users](files/users.md)
 - [Admin](files/admin.md)
+- [Customization](files/customization.md)
 
 ## Resources
 
