@@ -366,6 +366,33 @@ Notes:
   5. month (1 - 12)
   6. day of week (0 - 7)
 
+### Studio connection
+
+The Strapi Studio is a toolbox for developers that allows you to build and manage
+your APIs in realtime without writing any line of code. When your application is
+linked to the Studio, you are able to generate APIs from the Studio and see
+the changes in realtime in your local application.
+
+- Key: `studio`
+- Environment: all
+- Location: `./config/global.json`
+- Type: `object`
+- Defaults to:
+
+  ```js
+  {
+    "studio": {
+      "enabled": true,
+      "secretKey": ""
+    }
+  }
+  ```
+
+Options:
+- `enabled` (boolean): Do you want your application linked to the Strapi Studio?
+- `secretKey` (string): The secret key of your application to link your
+  current application with the Strapi Studio.
+
 ## General environment settings
 
 ### Host
