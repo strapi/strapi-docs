@@ -527,16 +527,21 @@ and manipulate your data without writing vendor-specific integration code.
   {
     "orm": {
       "adapters": {
-        "sqlite": "waterline-sqlite3"
+        "disk": "sails-disk"
       },
-      "defaultConnection": "defaultSQLite",
+      "defaultConnection": "default",
       "connections": {
-        "defaultSQLite": {
-          "adapter": "sqlite",
-          "type": "disk",
-          "filename": "./data/development/db.sqlite",
-          "migrate": "alter",
-          "debug": false
+        "default": {
+          "adapter": "disk",
+          "filePath": ".tmp/",
+          "fileName": "default.db",
+          "migrate": "alter"
+        },
+        "permanent": {
+          "adapter": "disk",
+          "filePath": "./data/",
+          "fileName": "permanent.db",
+          "migrate": "alter"
         }
       }
     }
@@ -563,9 +568,6 @@ Notes:
   Never use `drop` or `alter` with a production dataset.
   Additionally, on large databases `alter` may take a long time to complete at startup.
   This may cause the start process to appear to hang.
-- In SQLite you can choose your instance type. Specify whether to store the database on
-  `disk` or in `memory`.
-- Set the `debug` key to `true` to output SQL queries from SQLite.
 
 ## Security
 
