@@ -436,6 +436,28 @@ Notes:
 - When no port is configured or set, Strapi will look for the `process.env.PORT`
   value. If no port specified, the port will be `1337`.
 
+### Front-end URL
+
+This is the URL of your front-end application.
+
+This config key is useful when you don't use the `./public` directory for your
+assets or when you run your automation tools such as Gulp or Grunt on an other port.
+
+This address can be resourceful when you need to redirect the user after he
+logged in with an authentication provider.
+
+- Key: `frontendUrl`
+- Environment: `development`
+- Location: `./config/environments/development/general.json`
+- Type: `string`
+- Defaults to:
+
+  ```js
+  {
+    "frontendUrl": ""
+  }
+  ```
+
 ## Request
 
 ### Logger
