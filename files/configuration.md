@@ -74,7 +74,7 @@ The description of your application helps people discover your package, as it's 
 
 ## Global settings
 
-### Public assets config
+### Public assets
 
 Public assets refer to static files on your server that you want to make accessible to the
 outside world. In Strapi, these files are placed in the `./public` directory.
@@ -97,7 +97,7 @@ iOS, Android, Windows Phone, or something else that hasn't been invented yet.
 Notes:
 - Set to `false` to disable the public assets.
 
-### Views config
+### Views
 
 - Key: `views`
 - Environment: all
@@ -146,7 +146,7 @@ available using the `io` object.
 Notes:
 - Set to `false` to disable websockets with Socket.IO.
 
-### Favicon config
+### Favicon
 
 Set a favicon for your web application.
 
@@ -172,7 +172,7 @@ Options:
 Notes:
 - Set to `false` to disable the favicon feature.
 
-### i18n config
+### i18n
 
 If your application will touch people or systems from all over the world, internationalization
 and localization (`i18n`) may be an important part of your international strategy.
@@ -368,7 +368,7 @@ Notes:
 
 ## General environment settings
 
-### Host config
+### Host
 
 The host name the connection was configured to.
 
@@ -387,7 +387,7 @@ The host name the connection was configured to.
 Notes:
 - Defaults to the operating system hostname when available, otherwise `localhost`.
 
-### Port config
+### Port
 
 The actual port assigned after the server has been started.
 
@@ -407,9 +407,9 @@ Notes:
 - When no port is configured or set, Strapi will look for the `process.env.PORT`
   value. If no port specified, the port will be `1337`.
 
-## Request settings
+## Request
 
-### Logger config
+### Logger
 
 Enable or disable request logs.
 
@@ -428,7 +428,7 @@ Enable or disable request logs.
 Notes:
 - Set to `false` to disable the logger.
 
-### Body parser config
+### Body parser
 
 Parse request bodies.
 
@@ -465,9 +465,9 @@ Options:
 Notes:
 - Set to `false` to disable the body parser.
 
-## Response settings
+## Response
 
-### Gzip config
+### Gzip
 
 Enable or disable Gzip compression.
 
@@ -507,7 +507,7 @@ to when the headers are written out to the client.
 Notes:
 - Set to `false` to disable the response time header.
 
-## Databases config
+## Databases
 
 Strapi comes installed with a powerful ORM/ODM called Waterline, a datastore-agnostic tool that
 dramatically simplifies interaction with one or more databases.
@@ -832,7 +832,7 @@ Options:
 Notes:
 - Set to `false` to disable IP filter.
 
-### Proxy config
+### Proxy
 
 A proxy server is a server that acts as an intermediary for requests from clients
 seeking resources from other servers.
