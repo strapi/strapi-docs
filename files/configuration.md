@@ -385,6 +385,7 @@ The host name the connection was configured to.
   ```
 
 Notes:
+- You don't need to specify a `host` in a `production` environment.
 - Defaults to the operating system hostname when available, otherwise `localhost`.
 
 ### Port
@@ -404,6 +405,7 @@ The actual port assigned after the server has been started.
   ```
 
 Notes:
+- You don't need to specify a `host` in a `production` environment.
 - When no port is configured or set, Strapi will look for the `process.env.PORT`
   value. If no port specified, the port will be `1337`.
 
