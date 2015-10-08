@@ -273,7 +273,7 @@ outside of a function (since Strapi will not have finished loading yet).
 
 Options:
 - `models` (boolean): Your application's models are exposed as global variables using their `globalId`.
-  For instance, the model defined in the file `./api/models/Car.js` will be globally accessible as `Car`.
+  For instance, the model defined in the file `./api/car/models/Car.js` will be globally accessible as `Car`.
 - `strapi` (boolean): In most cases, you will want to keep the `strapi` object globally accessible,
   it makes your application code much cleaner.
 - `async` (boolean): Exposes an instance of Async.

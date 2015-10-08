@@ -11,7 +11,7 @@ If you're using MySQL, a model might correspond to a table. If you're using Mong
 to a collection. In either case, the goal is to provide a simple, modular way of managing data without
 relying on any one type of database.
 
-Models are defined in the `./api/models` directory.
+Models are defined in the `./api/<apiName>/models` directory.
 
 ## Model settings
 
@@ -243,7 +243,7 @@ Because we have only formed an association on one of the models, a `Pet` has no 
 on the number of `User` models it can belong to. If we wanted to, we could change this and
 associate the `Pet` with exactly one `User` and the `User` with exactly one `Pet`.
 
-`./api/models/Pet.settings.json`:
+`./api/pet/models/Pet.settings.json`:
 
 ```js
 {
@@ -261,7 +261,7 @@ associate the `Pet` with exactly one `User` and the `User` with exactly one `Pet
 }
 ```
 
-`./api/models/User.settings.json`:
+`./api/user/models/User.settings.json`:
 
 ```js
 {
@@ -292,7 +292,7 @@ In this example, we are associating a `Pet` with a `User`. The `User` may only h
 `Pet` and viceversa, a `Pet` can only have one `User`. However, in order to query this association
 from both sides, you will have to create/update both models.
 
-`./api/models/Pet.settings.json`:
+`./api/pet/models/Pet.settings.json`:
 
 ```js
 {
@@ -313,7 +313,7 @@ from both sides, you will have to create/update both models.
 }
 ```
 
-`./api/models/User.settings.json`:
+`./api/user/models/User.settings.json`:
 
 ```js
 {
@@ -347,7 +347,7 @@ is used to populate the records.
 
 In this example, a `User` can have several `Pet`, but a `Pet` has only one `owner` (from the `User` model).
 
-`./api/models/Pet.settings.json`:
+`./api/pet/models/Pet.settings.json`:
 
 ```js
 {
@@ -368,7 +368,7 @@ In this example, a `User` can have several `Pet`, but a `Pet` has only one `owne
 }
 ```
 
-`./api/models/User.settings.json`:
+`./api/user/models/User.settings.json`:
 
 ```js
 {
@@ -412,7 +412,7 @@ of the `Users`. If everything worked properly, we should be able to query any `U
 they _own_ all of the `Pets`. Furthermore, we should be able to query any `Pet` and see that
 it is _owned_ by every `User`.
 
-`./api/models/Pet.settings.json`:
+`./api/pet/models/Pet.settings.json`:
 
 ```js
 {
@@ -434,7 +434,7 @@ it is _owned_ by every `User`.
 }
 ```
 
-`./api/models/User.settings.json`:
+`./api/user/models/User.settings.json`:
 
 ```js
 {

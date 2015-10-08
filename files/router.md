@@ -46,7 +46,8 @@ route's target directly. The request will need to pass through any configured po
 Policies are versatile tools for authorization and access control. They let you allow or deny
 access to your controllers down to a fine level of granularity.
 
-Policies are defined in the `./api/policies` directory of your application.
+Policies are defined in the `policies` directory of every of your APIs.
+
 Each policy file should contain a single function. When it comes down to it, policies are
 really just functions which run before your controllers. You can chain as many of them
 together as you like. In fact they're designed to be used this way. Ideally, each middleware
