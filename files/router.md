@@ -7,7 +7,7 @@ from another.
 Like most web frameworks, Strapi provides a router: a mechanism for mapping URLs to controllers.
 Routes are rules that tell Strapi what to do when faced with an incoming request.
 
-Routes can be found in `./config/routes.json`.
+Routes can be found in `./api/<apiName>/config/routes.json`.
 
 ## Route format
 
