@@ -69,6 +69,17 @@ $ strapi version
 
 Output the current globally installed Strapi version.
 
+## Link your application
+
+```bash
+$ strapi link
+```
+
+Link an existing application without an `appId` to the Strapi Studio.
+
+This command can be useful if you were not logged into the Studio or if you
+didn't have Internet access when you generated your application.
+
 ## Logout
 
 ```bash
