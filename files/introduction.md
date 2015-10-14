@@ -1,4 +1,4 @@
-# Strapi
+# Introduction
 
 Strapi is an open-source Node.js rich framework for building applications and services.
 
