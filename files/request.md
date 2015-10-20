@@ -39,6 +39,15 @@ Set request URL, useful for url rewrites.
 
 Get request original URL.
 
+### request.origin
+
+Get origin of URL, include `protocol` and `host`.
+
+```js
+this.request.origin
+// => http://example.com
+```
+
 ### request.href
 
 Get full request URL, include `protocol`, `host` and `url`.

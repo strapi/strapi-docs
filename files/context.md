@@ -155,6 +155,7 @@ The following accessors and alias [Request](request.md) equivalents:
 - `ctx.url`
 - `ctx.url=`
 - `ctx.originalUrl`
+- `ctx.origin`
 - `ctx.href`
 - `ctx.path`
 - `ctx.path=`
