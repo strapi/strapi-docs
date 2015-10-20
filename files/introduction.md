@@ -149,6 +149,30 @@ Configuration files give you extra opportunities for human error.
 
 In many cases, you'll even be able to recycle some of your code.
 
+### Error Handling
+
+By default outputs all errors to `stderr` unless `NODE_ENV` is `test`.
+To perform custom error-handling logic such as centralized logging you can add an "error" event listener:
+
+```js
+strapi.app.on('error', function (err) {
+  strapi.log.error('server error', err);
+});
+```
+
+If an error in the req/res cycle and it is not possible to respond to the client,
+the `Context` instance is also passed:
+
+```js
+strapi.app.on('error', function (err, ctx) {
+  strapi.log.error('server error', err, ctx);
+});
+```
+
+When an error occurs and it is still possible to respond to the client,
+aka no data has been written to the socket, Strapi will respond appropriately with
+a 500 "Internal Server Error". In either case an app-level "error" is emitted for logging purposes.
+
 ### Different environments
 
 Strapi has built in support for the idea of having a different set of settings for each environment.
