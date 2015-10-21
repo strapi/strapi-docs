@@ -311,24 +311,7 @@ Options:
 
 ### SMTP
 
-Configure your email server.
-
-- Key: `smtp`
-- Environment: all
-- Location: `./config/global.json`
-- Type: `object`
-- Defaults to:
-
-  ```js
-  {
-    "smtp": {
-      "from": "no-reply@your-service.com"
-    }
-  }
-  ```
-
-Options:
-- `from` (string): The visible email address used to send your emails.
+Please refer to the Email API documentation.
 
 ### Bootstrap function
 
