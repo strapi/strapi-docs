@@ -45,7 +45,8 @@ yield strapi.api.upload.services.upload.upload(part, this);
 
 ## Upload API
 
-The upload API is a simple API which can be used from your client (front-end, mobile...) application to upload files.
+The upload API is a simple API which can be used from your client
+(front-end, mobile...) application to upload files.
 
 Route used to upload files:
 
@@ -53,7 +54,8 @@ Route used to upload files:
 POST /upload
 ```
 
-To use this route, you have to submit a HTML form with `multipart/*` enctype (or fake it if you are using a web front-end framework like AngularJS).
+To use this route, you have to submit a HTML form with `multipart/*` enctype
+(or fake it if you are using a web front-end framework like AngularJS).
 
 Response payload:
 
@@ -82,4 +84,6 @@ Response payload:
 
 ## Upload model
 
-Each uploaded file description is registered in the database. So you can retrieve them whenever you want. However, you can disable this option by overriding the upload service logic.
+Each uploaded file description is registered in the database. So you can retrieve
+them whenever you want. However, you can disable this option by overriding the
+upload service logic.
