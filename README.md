@@ -20,6 +20,8 @@ Table of contents:
 - [Request](files/request.md)
 - [Response](files/response.md)
 - [Users](files/users.md)
+- [Email](files/email.md)
+- [Upload](files/upload.md)
 - [Customization](files/customization.md)
 
 ## Resources

@@ -313,6 +313,10 @@ Options:
 
 Please refer to the Email API documentation.
 
+### Upload
+
+Please refer to the Upload API documentation.
+
 ### Bootstrap function
 
 The bootstrap function is a server-side JavaScript file that is executed by Strapi
