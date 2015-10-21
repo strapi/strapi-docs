@@ -11,6 +11,7 @@ Table of contents:
 - [Blueprints](files/blueprints.md)
 - [Models](files/models.md)
 - [Query Language](files/queries.md)
+- [GraphQL](files/graphql.md)
 - [Internationalization](files/internationalization.md)
 - [Sessions](files/sessions.md)
 - [Services](files/services.md)
