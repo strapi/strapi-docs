@@ -36,15 +36,26 @@ Lodash as template engine.
 
 ```js
 yield this.render('user', {
-  user: 'John'
+  firstname: 'John',
+  lastname: 'Doe'
 });
+```
+
+```html
+<html>
+  <head>...</head>
+  <body>
+    <p>Firstname: <% firstname %><br>Lastname: <% lastname %></p>
+  </body>
+</html>
 ```
 
 Here is the same example with the `jade` extension, not used by default:
 
 ```js
 yield this.render('user.jade', {
-  user: 'John'
+  firstname: 'John',
+  lastname: 'Doe'
 });
 ```
 

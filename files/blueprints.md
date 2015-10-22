@@ -18,6 +18,7 @@ All of the following actions return a promise.
 
 Returns a list of records from the model as a JSON array of objects.
 
+Route:
 ```js
 {
   "routes": {
@@ -25,6 +26,19 @@ Returns a list of records from the model as a JSON array of objects.
       "controller": "Pet",
       "action": "find"
     }
+  }
+}
+```
+
+Controller function:
+```js
+find: function * () {
+  this.model = 'Pet';
+
+  try {
+    this.body = yield strapi.hooks.blueprints.find(this);
+  } catch (error) {
+    this.body = error;
   }
 }
 ```
@@ -51,6 +65,7 @@ Optional parameters:
 
 Returns a single record from the model as a JSON object.
 
+Route:
 ```js
 {
   "routes": {
@@ -58,6 +73,19 @@ Returns a single record from the model as a JSON object.
       "controller": "Pet",
       "action": "findOne"
     }
+  }
+}
+```
+
+Controller function:
+```js
+findOne: function * () {
+  this.model = 'Pet';
+
+  try {
+    this.body = yield strapi.hooks.blueprints.findOne(this);
+  } catch (error) {
+    this.body = error;
   }
 }
 ```
@@ -72,6 +100,7 @@ Required parameters:
 
 Creates a new model instance in your database then returns its values.
 
+Route:
 ```js
 {
   "routes": {
@@ -79,6 +108,19 @@ Creates a new model instance in your database then returns its values.
       "controller": "Pet",
       "action": "create"
     }
+  }
+}
+```
+
+Controller function:
+```js
+create: function * () {
+  this.model = 'Pet';
+
+  try {
+    this.body = yield strapi.hooks.blueprints.create(this);
+  } catch (error) {
+    this.body = error;
   }
 }
 ```
@@ -100,6 +142,7 @@ Optional parameters:
 Updates an existing record. Attributes to change should be sent in the HTTP body
 as form-encoded values or JSON.
 
+Route:
 ```js
 {
   "routes": {
@@ -107,6 +150,19 @@ as form-encoded values or JSON.
       "controller": "Pet",
       "action": "update"
     }
+  }
+}
+```
+
+Controller function:
+```js
+update: function * () {
+  this.model = 'Pet';
+
+  try {
+    this.body = yield strapi.hooks.blueprints.update(this);
+  } catch (error) {
+    this.body = error;
   }
 }
 ```
@@ -131,6 +187,7 @@ Optional parameters:
 Deletes an existing record specified by `id` from the database forever and returns
 the values of the deleted record.
 
+Route:
 ```js
 {
   "routes": {
@@ -138,6 +195,19 @@ the values of the deleted record.
       "controller": "Pet",
       "action": "destroy"
     }
+  }
+}
+```
+
+Controller function:
+```js
+destroy: function * () {
+  this.model = 'Pet';
+
+  try {
+    this.body = yield strapi.hooks.blueprints.destroy(this);
+  } catch (error) {
+    this.body = error;
   }
 }
 ```
@@ -153,6 +223,7 @@ Required parameters:
 
 Adds an association between two records.
 
+Route:
 ```js
 {
   "routes": {
@@ -160,6 +231,19 @@ Adds an association between two records.
       "controller": "Pet",
       "action": "add"
     }
+  }
+}
+```
+
+Controller function:
+```js
+add: function * () {
+  this.model = 'Pet';
+
+  try {
+    this.body = yield strapi.hooks.blueprints.add(this);
+  } catch (error) {
+    this.body = error;
   }
 }
 ```
@@ -185,13 +269,27 @@ Notes:
 
 Removes an association between two records.
 
+Route:
 ```js
 {
   "routes": {
     "DELETE /pet/:id/:parentId/:relation/:id": {
       "controller": "Pet",
-      "action": "delete"
+      "action": "remove"
     }
+  }
+}
+```
+
+Controller function:
+```js
+remove: function * () {
+  this.model = 'Pet';
+
+  try {
+    this.body = yield strapi.hooks.blueprints.remove(this);
+  } catch (error) {
+    this.body = error;
   }
 }
 ```

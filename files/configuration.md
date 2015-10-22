@@ -111,6 +111,8 @@ Notes:
   }
   ```
 
+For more informations, please refer to the [Views documentation](http://strapi.io/documentation/views).
+
 Options:
 - `map`: Object mapping extension names to engine names.
 - `default`: Default extension name to use when missing.
@@ -266,7 +268,8 @@ outside of a function (since Strapi will not have finished loading yet).
       "models": true,
       "strapi": true,
       "async": true,
-      "_": true
+      "_": true,
+      "graphql": true
     }
   }
   ```
@@ -278,6 +281,7 @@ Options:
   it makes your application code much cleaner.
 - `async` (boolean): Exposes an instance of Async.
 - `_` (boolean): Exposes an instance of Lodash.
+- `graphql` (boolean): Exposes an instance of GraphQL.
 
 Notes:
 - Set to `false` to disable global variables.
@@ -343,6 +347,19 @@ with optional recurrence rules. It only uses a single timer at any given time
 - Environment: all
 - Location: `./config/functions/cron.js`
 - Type: `object`
+
+  ```js
+    module.exports.cron = {
+      /**
+       * Every day at midnight.
+       */
+
+      '0 0 * * *': function () {
+        // Your code here
+      }
+    };
+  }
+  ```
 
 Notes:
 - The cron format consists of:

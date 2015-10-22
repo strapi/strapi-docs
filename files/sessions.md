@@ -12,13 +12,34 @@ Strapi only supports cookie sessions, for now.
 The current session is available in `this.session` inside a controller action.
 
 ```js
-let count = this.session.views || 0;
-this.session.views = ++count;
-this.body = count + ' views';
+module.exports = {
+  find: function *() {
+    // Limit request rate to 100
+    if (this.session.views < 100) {
+      try {
+        this.session.views++;
+        this.body = yield Post.find(this.params);
+      } catch (error) {
+        this.body = error;
+      }
+    } else {
+      this.body = 'You have reached your request rate limit';
+    }
+  }
+};  
 ```
 
 To destroy an active session, simply set it to `null`:
 
 ```js
-this.session = null;
+module.exports = {
+  logout: function () {
+    try {
+      this.session = null;
+      this.redirect('./');
+    } catch (error) {
+      this.body = error;
+    }
+  }
+};  
 ```

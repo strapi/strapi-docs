@@ -27,12 +27,91 @@ of all routes for matches. If a matching route is found, the request is then pas
   }
 ```
 
+For example to manage your `Post` records with a CRUD, your route should look like that:
+```js
+  {
+    "routes": {
+      "GET /post": {
+        "controller": "PostController",
+        "action": "find"
+      }
+      "GET /post/:id": {
+        "controller": "PostController",
+        "action": "findOne"
+      },
+      "POST /post": {
+        "controller": "PostController",
+        "action": "create"
+      },
+      "PUT /post/:id": {
+        "controller": "PostController",
+        "action": "update"
+      },
+      "DELETE /post/:id": {
+        "controller": "PostController",
+        "action": "delete"
+      }
+    }
+  }
+```
+
 ## Route parameters
 
 Route paths will be translated to regular expressions used to match requests.
 Query strings will not be considered when matching requests.
 
-Route parameters are captured and added to `ctx.params`.
+Route parameters are captured and added to `ctx.params` or `ctx.request.body`.
+
+By taking the previous example, your `Post` controller should look like that:
+```js
+module.exports = {
+
+  // GET request
+  find: function *() {
+    try {
+      this.body = yield Post.find(this.params);
+    } catch (error) {
+      this.body = error;
+    }
+  },
+
+  findOne: function *() {
+    try {
+      this.body = yield Post.findOne(this.params);
+    } catch (error) {
+      this.body = error;
+    }
+  },
+
+  // POST request
+  create: function *() {
+    try {
+      this.body = yield Post.create(this.request.body);
+    } catch (error) {
+      this.body = error;
+    }
+  },
+
+  // PUT request
+  update: function *() {
+    try {
+      this.body = yield Post.update(this.params.id, this.request.body);
+    } catch (error) {
+      this.body = error;
+    }
+  },
+
+  // DELETE request
+  delete: function *() {
+    try {
+      this.body = yield Post.destroy(this.params);
+    } catch (error) {
+      this.body = error;
+    }
+  }
+};  
+
+```
 
 ## Router prefix
 
@@ -53,15 +132,15 @@ really just functions which run before your controllers. You can chain as many o
 together as you like. In fact they're designed to be used this way. Ideally, each middleware
 function should really check just one thing.
 
-For example to access `GET /admin`, the request will go through the `isAdmin` policy first.
-If the policy allows the request, then the `show` action from the `Admin` controller is executed.
+For example to access `DELETE /post/:id`, the request will go through the `isAdmin` policy first.
+If the policy allows the request, then the `show` action from the `Post` controller is executed.
 
 ```js
   {
     "routes": {
-      "GET /admin": {
-        "controller": "Admin",
-        "action": "show",
+      "DELETE /post/:id": {
+        "controller": "PostController",
+        "action": "delete",
         "policies": ["isAdmin"]
       }
     }

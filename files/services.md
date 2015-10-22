@@ -8,10 +8,38 @@ of your application.
 Simply create a JavaScript file containing a function or an object into your
 `./api/<apiName>/services` directory.
 
+For example, you could have an `Email service` like that:
 ```js
+var nodemailer = require('nodemailer');
+
 module.exports = {
-  functionName: function (options) {
-    // ...
+  sendEmail: function (from, to, subject, text) {
+    // Create reusable transporter object using SMTP transport 
+    var transporter = nodemailer.createTransport({
+        service: 'Gmail',
+        auth: {
+            user: 'gmail.user@gmail.com',
+            pass: 'userpass'
+        }
+    });
+    
+    // Setup e-mail data
+    var options = {
+        from: from,
+        to: to,
+        subject: subject,
+        text: text
+    };
+
+    // Send mail
+    transporter.sendMail(options, function(error, info){
+        if (error) {
+          console.log(error);
+          return false;
+        }
+
+        console.log('Message sent: ' + info.response);
+    });
   }
 };
 ```
