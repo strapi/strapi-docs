@@ -27,7 +27,7 @@ of all routes for matches. If a matching route is found, the request is then pas
   }
 ```
 
-For example to manage your `Post` records with a CRUD, your route should look like that:
+For example to manage your `Post` records with a CRUD, your route should look like this:
 ```js
   {
     "routes": {
@@ -62,7 +62,7 @@ Query strings will not be considered when matching requests.
 
 Route parameters are captured and added to `ctx.params` or `ctx.request.body`.
 
-By taking the previous example, your `Post` controller should look like that:
+By taking the previous example, your `Post` controller should look like this:
 ```js
 module.exports = {
 

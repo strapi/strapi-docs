@@ -8,7 +8,7 @@ of your application.
 Simply create a JavaScript file containing a function or an object into your
 `./api/<apiName>/services` directory.
 
-For example, you could have an `Email service` like that:
+For example, you could have an `Email service` like this:
 ```js
 var nodemailer = require('nodemailer');
 

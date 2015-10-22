@@ -61,7 +61,7 @@ For adapters that don't require a schema, such as MongoDB or Redis, the `schema`
 
 ```js
 {
-  schema: true|false
+  "schema": true|false
 }
 ```
 
@@ -72,7 +72,7 @@ Defaults to `defaultSQLite`, the default connection that uses the `waterline-sql
 
 ```js
 {
-  connection: "mongoDBServer"
+  "connection": "mongoDBServer"
 }
 ```
 
@@ -83,7 +83,7 @@ by lowercasing its filename. You should never change this property on your model
 
 ```js
 {
-  identity: "petModel"
+  "identity": "petModel"
 }
 ```
 
@@ -94,7 +94,7 @@ is enabled). You should never change this property on your models.
 
 ```js
 {
-  globaId: "pets"
+  "globaId": "pets"
 }
 ```
 
@@ -119,7 +119,7 @@ to define one manually using `primaryKey: true` for one of the model attributes.
 
 ```js
 {
-  autoPK: true|false
+  "autoPK": true|false
 }
 ```
 
@@ -131,7 +131,7 @@ the current timestamp.
 
 ```js
 {
-  autoCreatedAt: true|false
+  "autoCreatedAt": true|false
 }
 ```
 
@@ -143,7 +143,7 @@ every time a record is updated.
 
 ```js
 {
-  autoUpdatedAt: true|false
+  "autoUpdatedAt": true|false
 }
 ```
 
@@ -158,7 +158,7 @@ This is particularly useful for working with pre-existing/legacy databases.
 
 ```js
 {
-  tableName: 'pets_table'
+  "tableName": "pets_table"
 }
 ```
 
@@ -271,10 +271,10 @@ When a record is created, if no value was supplied, the record will be created w
 `defaultsTo` value.
 
 ```js
-attributes: {
-  usersGroup: {
-    type: 'string',
-    defaultsTo: 'guess'
+"attributes": {
+  "usersGroup": {
+    "type": "string",
+    "defaultsTo": "guess"
   }
 }
 ```
@@ -290,10 +290,10 @@ Also, bear in mind that the level of support varies across different datastores.
 For instance, MySQL will not allow more than one auto-incrementing column per table.
 
 ```js
-attributes: {
-  placeInLine: {
-    type: 'integer',
-    autoIncrement: true
+"attributes": {
+  "placeInLine": {
+    "type": "integer",
+    "autoIncrement": true
   }
 }
 ```
@@ -307,10 +307,10 @@ attribute being created in the underlying datastore.
 Defaults to `false` if not specified.
 
 ```js
-attributes: {
-  username: {
-    type: 'string',
-    unique: true
+"attributes": {
+  "username": {
+    "type": "string",
+    "unique": true
   }
 }
 ```
@@ -323,11 +323,11 @@ Use this attribute as the the primary key for the record. Only one attribute per
 This should never be used unless `autoPK` is set to `false`.
 
 ```js
-attributes: {
-  uuid: {
-    type: 'string',
-    primaryKey: true,
-    required: true
+"attributes": {
+  "uuid": {
+    "type": "string",
+    "primaryKey": true,
+    "required": true
   }
 }
 ```
@@ -337,10 +337,10 @@ attributes: {
 A special validation property which only saves data which matches a whitelisted set of values.
 
 ```js
-attributes: {
-  gender: {
-    type: 'string',
-    enum: ['male', 'female']
+"attributes": {
+  "gender": {
+    "type": "string",
+    "enum": ["male", "female"]
   }
 }
 ```
@@ -352,10 +352,10 @@ For example in MySQL, `size` can be specified as a number (`n`) to create a colu
 data type: `varchar(n)`.
 
 ```js
-attributes: {
-  name: {
-    type: 'string',
-    size: 24
+"attributes": {
+  "name": {
+    "type": "string",
+    "size": 24
   }
 }
 ```
@@ -371,10 +371,10 @@ it can also be useful in situations where your database is being shared by other
 or you don't have access permissions to change the schema.
 
 ```js
-attributes: {
-  name: {
-    type: 'string',
-    columnName: 'pet_name'
+"attributes": {
+  "name": {
+    "type": "string",
+    "columnName": "pet_name"
   }
 }
 ```

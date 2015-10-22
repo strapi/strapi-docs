@@ -111,7 +111,7 @@ Notes:
   }
   ```
 
-For more informations, please refer to the [Views documentation](http://strapi.io/documentation/views).
+For more information, please refer to the [views documentation](http://strapi.io/documentation/views).
 
 Options:
 - `map`: Object mapping extension names to engine names.
