@@ -33,8 +33,7 @@ If you are trying to find an attribute that is an array, you must wrap it in an 
 set of brackets otherwise Waterline will think you want to perform an `inQuery`.
 
 ```js
-Model
-  .find({
+User.find({
     name: 'Walter Jr'
   })
   .exec(function (err, users) {
@@ -57,8 +56,7 @@ If you are trying to find an attribute that is an array, you must wrap it in an 
 set of brackets otherwise Waterline will think you want to perform an `inQuery`.
 
 ```js
-Model
-  .findOne({
+User.findOne({
     name: 'Walter Jr'
   })
   .exec(function (err, user) {
@@ -78,8 +76,7 @@ If the data is valid and passes all validations it will be sent to the adapters 
 - The `callback` function is optional.
 
 ```js
-Model
-  .create({
+User.create({
     name: 'Walter Jr'
   })
   .exec(function (err, user) {
@@ -112,8 +109,7 @@ Either user(s) with the name "Walter Jr" get returned or
 a single user gets created with the name "Walter Jr" and returned:
 
 ```js
-Model
-  .findOrCreate({
+User.findOrCreate({
     name: 'Walter Jr'
   })
   .exec(function (err, users) {
@@ -139,8 +135,7 @@ of the record. If you specify a primary key instead of a criteria object,
 any `.where()` filters will be ignored.
 
 ```js
-Model
-  .update({
+User.update({
     name: 'Walter Jr'
   }, {
     name: 'Flynn'
@@ -165,8 +160,7 @@ If you want to confirm the record exists before you delete it,
 you must first perform a `.find()`. Any string arguments passed must be the ID of the record.
 
 ```js
-Model
-  .destroy({
+User.destroy({
     name: 'Flynn'
   })
   .exec(function (err) {
@@ -229,7 +223,7 @@ which will allow you to also use query options such as `limit` and `skip` or
 if `where` is excluded the entire object will be treated as a `where` criteria.
 
 ```js
-Model.find({
+User.find({
   where: {
     name: 'John'
   },
@@ -242,7 +236,7 @@ Model.find({
 Or:
 
 ```js
-Model.find({
+User.find({
   name: 'John'
 });
 ```
@@ -254,7 +248,7 @@ This is the base of a criteria object where the key represents an attribute on a
 and the value is a strict equality check of the records for matching values.
 
 ```js
-Model.find({
+User.find({
   name: 'John'
 });
 ```
@@ -262,7 +256,7 @@ Model.find({
 They can be used together to search multiple attributes:
 
 ```js
-Model.find({
+User.find({
   name: 'John',
   country: 'France'
 });
@@ -274,7 +268,7 @@ Modified pairs also have model attributes for keys but they also use any of the
 supported criteria modifiers to perform queries where a strict equality check wouldn't work.
 
 ```js
-Model.find({
+User.find({
   name: {
     contains: 'alt'
   }
@@ -286,7 +280,7 @@ Model.find({
 In queries work similarly to MySQL `in` queries. Each element in the array is treated as `or`.
 
 ```js
-Model.find({
+User.find({
   name: ['John', 'Walter']
 });
 ```
@@ -296,7 +290,7 @@ Model.find({
 Not-In queries work similar to `in` queries, except for the nested object criteria.
 
 ```js
-Model.find({
+User.find({
   name: {
     '!': ['John', 'Walter']
   }
@@ -309,7 +303,7 @@ Performing `OR` queries is done by using an array of query pairs.
 Results will be returned that match any of the criteria objects inside the array.
 
 ```js
-Model.find({
+User.find({
   or: [
     {
       name: 'John'
@@ -339,7 +333,7 @@ The following modifiers are available to use when building queries:
 Searches for records where the value is less than the value specified.
 
 ```js
-Model.find({
+User.find({
   age: {
     '<': 30
   }
@@ -351,7 +345,7 @@ Model.find({
 Searches for records where the value is less or equal to the value specified.
 
 ```js
-Model.find({
+User.find({
   age: {
     '<=': 21
   }
@@ -363,7 +357,7 @@ Model.find({
 Searches for records where the value is more than the value specified.
 
 ```js
-Model.find({
+User.find({
   age: {
     '>': 18
   }
@@ -375,7 +369,7 @@ Model.find({
 Searches for records where the value is more or equal to the value specified.
 
 ```js
-Model.find({
+User.find({
   age: {
     '>=': 21
   }
@@ -387,7 +381,7 @@ Model.find({
 Searches for records where the value is not equal to the value specified.
 
 ```js
-Model.find({
+User.find({
   name: {
     '!': 'John'
   }
@@ -399,7 +393,7 @@ Model.find({
 Searches for records using pattern matching with the `%` sign.
 
 ```js
-Model.find({
+User.find({
   food: {
     'like': '%burgers'
   }
@@ -412,7 +406,7 @@ A shorthand for pattern matching both sides of a string.
 Will return records where the value contains the string anywhere inside of it.
 
 ```js
-Model.find({
+User.find({
   class: {
     'like': '%history%'
   }
@@ -420,7 +414,7 @@ Model.find({
 ```
 
 ```js
-Model.find({
+User.find({
   class: {
     'contains': 'history'
   }
@@ -433,7 +427,7 @@ A shorthand for pattern matching the right side of a string
 Will return records where the value starts with the supplied string value.
 
 ```js
-Model.find({
+User.find({
   class: {
     'startsWith': 'french'
   }
@@ -441,7 +435,7 @@ Model.find({
 ```
 
 ```js
-Model.find({
+User.find({
   class: {
     'like': 'french%'
   }
@@ -454,7 +448,7 @@ A shorthand for pattern matching the left side of a string.
 Will return records where the value ends with the supplied string value.
 
 ```js
-Model.find({
+User.find({
   class: {
     'endsWith': 'can'
   }
@@ -462,7 +456,7 @@ Model.find({
 ```
 
 ```js
-Model.find({
+User.find({
   class: {
     'like': '%can'
   }
@@ -474,7 +468,7 @@ Model.find({
 You can do date range queries using the comparison operators.
 
 ```js
-Model.find({
+User.find({
   date: {
     '>': new Date('2/4/2014'),
     '<': new Date('2/7/2014')
@@ -491,7 +485,7 @@ Query options allow you refine the results that are returned from a query.
 Limit the number of results returned from a query.
 
 ```js
-Model.find({
+User.find({
   where: {
     name: 'John'
   },
@@ -504,7 +498,7 @@ Model.find({
 Return all the results excluding the number of items to skip.
 
 ```js
-Model.find({
+User.find({
   where: {
     name: 'John'
   },
@@ -517,7 +511,7 @@ Model.find({
 `skip` and `limit` can be used together to build up a pagination system.
 
 ```js
-Model.find({
+User.find({
   where: {
     name: 'John'
   },
@@ -535,7 +529,7 @@ descending orders respectively.
 Sort by name in ascending order:
 
 ```js
-Model.find({
+User.find({
   where: {
     name: 'John'
   },
@@ -546,7 +540,7 @@ Model.find({
 Sort by name in descending order:
 
 ```js
-Model.find({
+User.find({
   where: {
     name: 'John'
   },
@@ -557,7 +551,7 @@ Model.find({
 Sort by name in ascending order:
 
 ```js
-Model.find({
+User.find({
   where: {
     name: 'John'
   },
@@ -568,7 +562,7 @@ Model.find({
 Sort by binary notation
 
 ```js
-Model.find({
+User.find({
   where: {
     name: 'John'
   },
@@ -581,7 +575,7 @@ Model.find({
 Sort by multiple attributes:
 
 ```js
-Model.find({
+User.find({
   where: {
     name: 'John'
   },
@@ -599,7 +593,7 @@ Apply a projection to a Waterline query.
 This example only returns the field name:
 
 ```js
-Model.find({
+User.find({
   where: {
     age: {
       '<': 30

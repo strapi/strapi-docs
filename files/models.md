@@ -18,6 +18,39 @@ Models are defined in the `./api/<apiName>/models` directory.
 The following properties can be specified at the top level of your model definition to override
 the defaults for that particular model.
 
+For example, this a basic model `Pet`:
+```js
+{
+  "identity": "pet",
+  "connection": "mongoDBServer",
+  "schema": true,
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "enum": ["male", "female"]
+    },
+    "age": {
+      "type": "int",
+      "max": 100
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "breed": {
+      "type": "string"
+    }
+  },
+  "autoPK": true,
+  "autoCreatedAt": true,
+  "autoUpdatedAt": true
+}
+
+```
+
 ### schema
 
 A flag to toggle schemaless or schema mode in databases that support schemaless data structures.
@@ -26,20 +59,56 @@ defined in the model's attributes object will be stored.
 
 For adapters that don't require a schema, such as MongoDB or Redis, the `schema` key is set to `false`.
 
+```js
+{
+  "schema": true|false
+}
+```
+
 ### connection
 
 The configured database connection where this model will fetch and save its data.
 Defaults to `defaultSQLite`, the default connection that uses the `waterline-sqlite3` adapter.
+
+```js
+{
+  "connection": "mongoDBServer"
+}
+```
 
 ### identity
 
 The lowercase unique key for the model. By default, a model's identity is inferred automatically
 by lowercasing its filename. You should never change this property on your models.
 
+```js
+{
+  "identity": "petModel"
+}
+```
+
 ### globalId
 
 This flag changes the global name by which you can access your model (if the globalization of models
 is enabled). You should never change this property on your models.
+
+```js
+{
+  "globaId": "pets"
+}
+```
+
+For example to access to your model function:
+```js
+Pets.find().exec(function (error, pets) {
+  if (error) {
+    console.log(error);
+    return false;
+  }
+
+  console.log(pets);
+});
+```
 
 ### autoPK
 
@@ -48,17 +117,35 @@ The details of this default primary key vary between adapters. In any case, the 
 by `autoPK` will be unique. If turned off no primary key will be created by default, and you will need
 to define one manually using `primaryKey: true` for one of the model attributes.
 
+```js
+{
+  "autoPK": true|false
+}
+```
+
 ### autoCreatedAt
 
 A flag to toggle the automatic definition of a `createdAt` attribute in your model.
 By default, `createdAt` is an attribute which will be automatically set when a record is created with
 the current timestamp.
 
+```js
+{
+  "autoCreatedAt": true|false
+}
+```
+
 ### autoUpdatedAt
 
 A flag to toggle the automatic definition of a `updatedAt` attribute in your model.
 By default, `updatedAt` is an attribute which will be automatically set with the current timestamp
 every time a record is updated.
+
+```js
+{
+  "autoUpdatedAt": true|false
+}
+```
 
 ### tableName
 
@@ -69,11 +156,17 @@ If no `tableName` is specified, Waterline will use the model's `identity` as its
 
 This is particularly useful for working with pre-existing/legacy databases.
 
+```js
+{
+  "tableName": "pets_table"
+}
+```
+
 ### attributes
 
 Model attributes are basic pieces of information about a model.
-A model called `Person` might have attributes called `firstName`, `lastName`, `phoneNumber`,
-`age`, `birthDate` and `emailAddress`.
+A model called `Pet` might have attributes called `name`, `gender`, `age`,
+`birthday` and `breed`.
 
 Options can be used to enforce various constraints and add special enhancements to model attributes.
 
@@ -177,6 +270,15 @@ Validations are defined directly in your collection attributes.
 When a record is created, if no value was supplied, the record will be created with the specified
 `defaultsTo` value.
 
+```js
+"attributes": {
+  "usersGroup": {
+    "type": "string",
+    "defaultsTo": "guess"
+  }
+}
+```
+
 #### autoIncrement
 
 Sets up the attribute as an auto-increment key. When a new record is added to the model,
@@ -187,6 +289,15 @@ Attributes which specify `autoIncrement` should always be of `type: integer`.
 Also, bear in mind that the level of support varies across different datastores.
 For instance, MySQL will not allow more than one auto-incrementing column per table.
 
+```js
+"attributes": {
+  "placeInLine": {
+    "type": "integer",
+    "autoIncrement": true
+  }
+}
+```
+
 #### unique
 
 Ensures no two records will be allowed with the same value for the target attribute.
@@ -195,24 +306,59 @@ attribute being created in the underlying datastore.
 
 Defaults to `false` if not specified.
 
+```js
+"attributes": {
+  "username": {
+    "type": "string",
+    "unique": true
+  }
+}
+```
+
 #### primaryKey
 
 Use this attribute as the the primary key for the record. Only one attribute per model can be the
-`primaryKey`.
-
-Defaults to `false` if not specified.
+`primaryKey`. Defaults to `false` if not specified.
 
 This should never be used unless `autoPK` is set to `false`.
+
+```js
+"attributes": {
+  "uuid": {
+    "type": "string",
+    "primaryKey": true,
+    "required": true
+  }
+}
+```
 
 #### enum
 
 A special validation property which only saves data which matches a whitelisted set of values.
+
+```js
+"attributes": {
+  "gender": {
+    "type": "string",
+    "enum": ["male", "female"]
+  }
+}
+```
 
 #### size
 
 If supported in the adapter, can be used to define the size of the attribute.
 For example in MySQL, `size` can be specified as a number (`n`) to create a column with the SQL
 data type: `varchar(n)`.
+
+```js
+"attributes": {
+  "name": {
+    "type": "string",
+    "size": 24
+  }
+}
+```
 
 #### columnName
 
@@ -223,6 +369,15 @@ Be aware that this is not necessarily SQL-specific. It will also work for MongoD
 While the `columnName` property is primarily designed for working with existing/legacy databases,
 it can also be useful in situations where your database is being shared by other applications,
 or you don't have access permissions to change the schema.
+
+```js
+"attributes": {
+  "name": {
+    "type": "string",
+    "columnName": "pet_name"
+  }
+}
+```
 
 ## Associations
 
@@ -481,3 +636,78 @@ Strapi exposes a handful of lifecycle callbacks by default.
 
 - `beforeDestroy`: `fn(criteria, cb)`
 - `afterDestroy`: `fn(deletedRecord, cb)`
+
+
+For example, this could be your `./api/pet/models/Pet.js` file:
+```js
+module.exports = {
+  /**
+   * Basic settings
+   */
+
+  // The identity to use.
+  identity: settings.identity,
+
+  // The connection to use.
+  connection: settings.connection,
+
+  // Do you want to respect schema?
+  schema: settings.schema,
+
+  // Merge simple attributes from settings with those ones.
+  attributes: _.merge(settings.attributes, {
+
+  }),
+
+  // Do you automatically want to have time data?
+  autoCreatedAt: settings.autoCreatedAt,
+  autoUpdatedAt: settings.autoUpdatedAt,
+
+  /**
+   * Lifecycle callbacks on create
+   */
+
+  // Before creating a value.
+  beforeCreate: function (values, next) {
+    // Do some stuff
+    next();
+  },
+
+  // After creating a value.
+  afterCreate: function (newlyInsertedRecord, next) {
+    // Do some stuff
+    next();
+  },
+
+  /**
+   * Lifecycle callbacks on update
+   */
+
+  // Before updating a value.
+  beforeUpdate: function (valuesToUpdate, next) {
+    // Do some stuff
+    next();
+  },
+
+  // After updating a value.
+  afterUpdate: function (updatedRecord, next) {
+    // Do some stuff
+    next();
+  },
+
+  /**
+   * Lifecycle callbacks on destroy
+   */
+
+  // Before destroying a value.
+  beforeDestroy: function (criteria, next) {
+    // Do some stuff
+    next();
+  },
+
+  // After destroying a value.
+  afterDestroy: function (destroyedRecords, next) {
+    // Do some stuff
+    next();
+  }
+```
