@@ -144,7 +144,7 @@ The Content-Type is defaulted to application/json.
 Get a response header field value with case-insensitive `field`.
 
 ```js
-var etag = this.get('ETag');
+const etag = this.get('ETag');
 ```
 
 ### response.set(field, value)
@@ -182,7 +182,7 @@ Remove header `field`.
 Get response `Content-Type` void of parameters such as "charset".
 
 ```js
-var ct = this.type;
+const ct = this.type;
 // => "image/png"
 ```
 
@@ -213,17 +213,24 @@ For example, this is a middleware that minifies
 all HTML responses except for streams.
 
 ```js
-var minify = require('html-minifier');
+const minify = require('html-minifier');
 
-strapi.app.use(function *minifyHTML(next){
+strapi.app.use(function *minifyHTML(next) {
   yield next;
 
-  if (!this.response.is('html')) return;
+  if (!this.response.is('html')) {
+    return;
+  }
 
-  var body = this.body;
-  if (!body || body.pipe) return;
+  const body = this.body;
+  if (!body || body.pipe) {
+    return;
+  }
 
-  if (Buffer.isBuffer(body)) body = body.toString();
+  if (Buffer.isBuffer(body)) {
+    body = body.toString();
+  }
+
   this.body = minify(body);
 });
 ```

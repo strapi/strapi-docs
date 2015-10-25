@@ -96,7 +96,7 @@ when `strapi.app.proxy` is `true`, otherwise `Host` is used.
 Get request `Content-Type` void of parameters such as "charset".
 
 ```js
-var ct = this.request.type;
+const ct = this.request.type;
 // => "image/png"
 ```
 
