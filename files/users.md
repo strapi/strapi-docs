@@ -31,7 +31,7 @@ Response payload:
 
 ## Local Login
 
-Route used to login a user to your application: `POST /auth/local/login`.
+Route used to login a user to your application: `POST /auth/local`.
 
 Request payload:
 
