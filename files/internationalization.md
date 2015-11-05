@@ -92,7 +92,7 @@ Or from locales:
 ```js
 {
   "catEat": {
-    "one": "%d cat eat the %s",
+    "one": "%d cat eats the %s",
     "other": '%d cats eat the %s'
   }
 }
