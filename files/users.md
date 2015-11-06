@@ -88,7 +88,7 @@ Response payload:
 
 ## Custom providers
 
-Strapi comes with 5 providers. If you want to add another one, it can be easily done thanks to [Purest](https://github.com/simov/purest), by adding it in the Auth controller.
+Strapi comes with 5 providers. If you want to add another one, it can be easily done thanks to [Purest](https://github.com/simov/purest), by adding it in the Grant service.
 
 ## Forgot password
 
