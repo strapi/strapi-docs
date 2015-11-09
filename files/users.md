@@ -4,7 +4,7 @@ Most of the web applications require a user management system: registration, log
 reset password, etc.
 
 To avoid you to reinvent the wheel, Strapi embedded a full featured user management
-system powered by [Passport](http://passportjs.org/) and JSON Web Token (JWT).
+system powered by [Grant](https://github.com/simov/grant) and JSON Web Token (JWT).
 
 ## Local Registration
 
@@ -51,9 +51,17 @@ Response payload:
 }
 ```
 
+## Authentication
+
+JWT does not use session. Once you get the token, it has to be stored in front (for
+example in the `localstorage`), and sent within each request. The token can be sent:
+- in the header (`Bearer`)
+- in the body (`token` field)
+- in the querystring (`token` field)
+
 ## Providers
 
-Thanks to [Passport](http://passportjs.org/), you can easily use OAuth and OAuth2
+Thanks to [Grant](https://github.com/simov/grant) and [Purest](https://github.com/simov/purest), you can easily use OAuth and OAuth2
 providers to enable authentication in your application. By default,
 Strapi comes with five providers:
 - Facebook
@@ -63,11 +71,11 @@ Strapi comes with five providers:
 - LinkedIn
 
 To use the providers authentication, set your credentials in
-`./config/environments/development/passport.json`.
+`./config/environments/development/grant.json`.
 
-Redirect your user to: `GET /auth/:provider`.
+Redirect your user to: `GET /connect/:provider`.
 
-After his approval, he will be redirected to `/auth/:provider/callback`.
+After his approval, he will be redirected to `/auth/:provider/callback`. The jwt and user will be available in the querystring.
 
 Response payload:
 
@@ -77,6 +85,10 @@ Response payload:
   "jwt": ""
 }
 ```
+
+## Custom providers
+
+Strapi comes with 5 providers. If you want to add another one, it can be easily done thanks to [Purest](https://github.com/simov/purest), by adding it in the Grant service.
 
 ## Forgot password
 
