@@ -92,7 +92,7 @@ Strapi comes with 5 providers. If you want to add another one, it can be easily 
 
 ## Forgot password
 
-Send an email to the user with an activation code: `GET /auth/forgot-password`.
+Send an email to the user with an activation code: `POST /auth/forgot-password`.
 
 Request payload:
 
@@ -105,7 +105,7 @@ Request payload:
 ## Change password
 
 Route used to update the password of a user after he asked for a
-"forgot-password" email: `GET /auth/change-password`.
+"forgot-password" email: `POST /auth/change-password`.
 
 Request payload:
 
