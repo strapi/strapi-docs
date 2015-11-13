@@ -44,7 +44,7 @@ Notes:
 - The name ends up being part of a URL, an argument on the command line, and a folder name.
   Therefore, the name can't contain any non-URL-safe characters.
 - Don't use the same name as a core Node.js module.
-- Don't put "js" or "node" in the name. It's assumed that it's js, since you're writing
+- Don't put "js" or "node" in the name. It's assumed that it's JavaScript, since you're writing
   a `package.json` file.
 - The name will probably be passed as an argument to `require()`, so it should be something short,
   but also reasonably descriptive. You may want to check the npm registry to see if there's something
@@ -84,7 +84,7 @@ iOS, Android, Windows Phone, or something else that hasn't been invented yet.
 
 - Key: `static`
 - Environment: all
-- Location: `./config/global.json`
+- Location: `./config/general.json`
 - Type: `boolean`
 - Defaults to:
 
@@ -101,7 +101,7 @@ Notes:
 
 - Key: `views`
 - Environment: all
-- Location: `./config/global.json`
+- Location: `./config/general.json`
 - Type: `object`
 - Defaults to:
 
@@ -135,7 +135,7 @@ available using the `io` object.
 
 - Key: `websockets`
 - Environment: all
-- Location: `./config/global.json`
+- Location: `./config/general.json`
 - Type: `boolean`
 - Defaults to:
 
@@ -154,7 +154,7 @@ Set a favicon for your web application.
 
 - Key: `favicon`
 - Environment: all
-- Location: `./config/global.json`
+- Location: `./config/general.json`
 - Type: `object`
 - Defaults to:
 
@@ -174,6 +174,54 @@ Options:
 Notes:
 - Set to `false` to disable the favicon feature.
 
+### API prefix
+
+Prefix your API aiming to not have any conflicts with your front-end if you have one of if need to
+for some other reasons.
+
+- Key: `prefix`
+- Environment: all
+- Location: `./config/general.json`
+- Type: `string`
+- Defaults to:
+
+  ```js
+  {
+    "prefix": ""
+  }
+  ```
+
+Notes:
+- Let an empty string if you don't want to prefix your API.
+- The prefix must starts with a `/`, e.g. `/api`.
+
+### Blueprints
+
+The blueprints are a set of useful actions containing all the logic you need to
+create a clean RESTful API. The generated controllers and routes are automatically
+plugged to the blueprint actions. Thanks to that, as soon as you generate a new API
+from the CLI, you can enjoy a RESTful API without writing any line of code.
+
+- Key: `blueprints`
+- Environment: all
+- Location: `./config/general.json`
+- Type: `object`
+- Defaults to:
+
+  ```js
+  {
+    "blueprints": {
+      "defaultLimit": 30,
+      "populate": true
+    }
+  }
+  ```
+
+Options:
+- `defaultLimit` (integer): The maximum number of records to send back.
+- `populate` (boolean): If enabled, the population process fills out attributes
+  in the returned list of records according to the model's defined associations.
+
 ### i18n
 
 If your application will touch people or systems from all over the world, internationalization
@@ -184,7 +232,7 @@ static words/sentences.
 
 - Key: `i18n`
 - Environment: all
-- Location: `./config/global.json`
+- Location: `./config/i18n.json`
 - Type: `object`
 - Defaults to:
 
@@ -221,27 +269,6 @@ Notes:
 - Set to `false` to disable the locales feature.
 - Locales may be configured in the `./config/locales` directory.
 
-### API prefix
-
-Prefix your API aiming to not have any conflicts with your front-end if you have one of if need to
-for some other reasons.
-
-- Key: `prefix`
-- Environment: all
-- Location: `./config/global.json`
-- Type: `string`
-- Defaults to:
-
-  ```js
-  {
-    "prefix": ""
-  }
-  ```
-
-Notes:
-- Let an empty string if you don't want to prefix your API.
-- The prefix must starts with a `/`, e.g. `/api`.
-
 ### Global variables
 
 For convenience, Strapi exposes a handful of global variables. By default, your application's
@@ -258,7 +285,7 @@ outside of a function (since Strapi will not have finished loading yet).
 
 - Key: `globals`
 - Environment: all
-- Location: `./config/global.json`
+- Location: `./config/globals.json`
 - Type: `object`
 - Defaults to:
 
@@ -285,41 +312,6 @@ Options:
 
 Notes:
 - Set to `false` to disable global variables.
-
-### Blueprints
-
-The blueprints are a set of useful actions containing all the logic you need to
-create a clean RESTful API. The generated controllers and routes are automatically
-plugged to the blueprint actions. Thanks to that, as soon as you generate a new API
-from the CLI, you can enjoy a RESTful API without writing any line of code.
-
-- Key: `blueprints`
-- Environment: all
-- Location: `./config/global.json`
-- Type: `object`
-- Defaults to:
-
-  ```js
-  {
-    "blueprints": {
-      "defaultLimit": 30,
-      "populate": true
-    }
-  }
-  ```
-
-Options:
-- `defaultLimit` (integer): The maximum number of records to send back.
-- `populate` (boolean): If enabled, the population process fills out attributes
-  in the returned list of records according to the model's defined associations.
-
-### SMTP
-
-Please refer to the Email API documentation.
-
-### Upload
-
-Please refer to the Upload API documentation.
 
 ### Bootstrap function
 
@@ -350,6 +342,7 @@ with optional recurrence rules. It only uses a single timer at any given time
 
   ```js
     module.exports.cron = {
+
       /**
        * Every day at midnight.
        */
@@ -379,7 +372,7 @@ the changes in realtime in your local application.
 
 - Key: `studio`
 - Environment: all
-- Location: `./config/global.json`
+- Location: `./config/studio.json`
 - Type: `object`
 - Defaults to:
 
@@ -387,7 +380,7 @@ the changes in realtime in your local application.
   {
     "studio": {
       "enabled": true,
-      "secretKey": ""
+      "secretKey": "YOUR SECRET KEY HERE"
     }
   }
   ```
@@ -405,7 +398,7 @@ The host name the connection was configured to.
 
 - Key: `host`
 - Environment: `development`
-- Location: `./config/environments/development/general.json`
+- Location: `./config/environments/development/server.json`
 - Type: `string`
 - Defaults to:
 
@@ -425,7 +418,7 @@ The actual port assigned after the server has been started.
 
 - Key: `port`
 - Environment: `development`
-- Location: `./config/environments/development/general.json`
+- Location: `./config/environments/development/server.json`
 - Type: `integer`
 - Defaults to:
 
@@ -452,7 +445,7 @@ logged in with an authentication provider.
 
 - Key: `frontendUrl`
 - Environment: `development`
-- Location: `./config/environments/development/general.json`
+- Location: `./config/environments/development/server.json`
 - Type: `string`
 - Defaults to:
 
@@ -462,6 +455,32 @@ logged in with an authentication provider.
   }
   ```
 
+### Reload
+
+Enable or disable auto-reload when your application crashes.
+
+- Key: `reload`
+- Environment: `development`
+- Location: `./config/environments/development/server.json`
+- Type: `object`
+- Defaults to:
+
+  ```js
+  {
+    "reload": {
+      "timeout": 1000,
+      "workers": 1
+    }
+  }
+  ```
+
+Options:
+- `timeout` (integer): Set the timeout before killing a worker in ms.
+- `workers` (integer): Set the number of workers to spawn.
+
+Notes:
+- Set to `false` to disable the auto-reload.
+
 ## Request
 
 ### Logger
@@ -470,7 +489,7 @@ Enable or disable request logs.
 
 - Key: `logger`
 - Environment: `development`
-- Location: `./config/environments/development/request.json`
+- Location: `./config/environments/development/server.json`
 - Type: `boolean`
 - Defaults to:
 
@@ -489,7 +508,7 @@ Parse request bodies.
 
 - Key: `parser`
 - Environment: `development`
-- Location: `./config/environments/development/request.json`
+- Location: `./config/environments/development/server.json`
 - Type: `object`
 - Defaults to:
 
@@ -528,7 +547,7 @@ Enable or disable Gzip compression.
 
 - Key: `gzip`
 - Environment: `development`
-- Location: `./config/environments/development/response.json`
+- Location: `./config/environments/development/server.json`
 - Type: `boolean`
 - Defaults to:
 

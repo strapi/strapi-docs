@@ -14,6 +14,7 @@ The current session is available in `this.session` inside a controller action.
 ```js
 module.exports = {
   find: function *() {
+
     // Limit request rate to 100
     if (this.session.views < 100) {
       try {

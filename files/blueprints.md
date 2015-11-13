@@ -19,6 +19,7 @@ All of the following actions return a promise.
 Returns a list of records from the model as a JSON array of objects.
 
 Route:
+
 ```js
 {
   "routes": {
@@ -31,6 +32,7 @@ Route:
 ```
 
 Controller function:
+
 ```js
 find: function * () {
   this.model = 'Pet';
@@ -66,6 +68,7 @@ Optional parameters:
 Returns a single record from the model as a JSON object.
 
 Route:
+
 ```js
 {
   "routes": {
@@ -78,6 +81,7 @@ Route:
 ```
 
 Controller function:
+
 ```js
 findOne: function * () {
   this.model = 'Pet';
@@ -101,6 +105,7 @@ Required parameters:
 Creates a new model instance in your database then returns its values.
 
 Route:
+
 ```js
 {
   "routes": {
@@ -113,6 +118,7 @@ Route:
 ```
 
 Controller function:
+
 ```js
 create: function * () {
   this.model = 'Pet';
@@ -143,6 +149,7 @@ Updates an existing record. Attributes to change should be sent in the HTTP body
 as form-encoded values or JSON.
 
 Route:
+
 ```js
 {
   "routes": {
@@ -155,6 +162,7 @@ Route:
 ```
 
 Controller function:
+
 ```js
 update: function * () {
   this.model = 'Pet';
@@ -188,6 +196,7 @@ Deletes an existing record specified by `id` from the database forever and retur
 the values of the deleted record.
 
 Route:
+
 ```js
 {
   "routes": {
@@ -200,6 +209,7 @@ Route:
 ```
 
 Controller function:
+
 ```js
 destroy: function * () {
   this.model = 'Pet';
@@ -224,6 +234,7 @@ Required parameters:
 Adds an association between two records.
 
 Route:
+
 ```js
 {
   "routes": {
@@ -236,6 +247,7 @@ Route:
 ```
 
 Controller function:
+
 ```js
 add: function * () {
   this.model = 'Pet';
@@ -270,6 +282,7 @@ Notes:
 Removes an association between two records.
 
 Route:
+
 ```js
 {
   "routes": {
@@ -282,6 +295,7 @@ Route:
 ```
 
 Controller function:
+
 ```js
 remove: function * () {
   this.model = 'Pet';

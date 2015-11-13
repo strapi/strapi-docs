@@ -28,27 +28,28 @@ of all routes for matches. If a matching route is found, the request is then pas
 ```
 
 For example to manage your `Post` records with a CRUD, your route should look like this:
+
 ```js
   {
     "routes": {
       "GET /post": {
-        "controller": "PostController",
+        "controller": "Post",
         "action": "find"
       }
       "GET /post/:id": {
-        "controller": "PostController",
+        "controller": "Post",
         "action": "findOne"
       },
       "POST /post": {
-        "controller": "PostController",
+        "controller": "Post",
         "action": "create"
       },
       "PUT /post/:id": {
-        "controller": "PostController",
+        "controller": "Post",
         "action": "update"
       },
       "DELETE /post/:id": {
-        "controller": "PostController",
+        "controller": "Post",
         "action": "delete"
       }
     }
@@ -63,6 +64,7 @@ Query strings will not be considered when matching requests.
 Route parameters are captured and added to `ctx.params` or `ctx.request.body`.
 
 By taking the previous example, your `Post` controller should look like this:
+
 ```js
 module.exports = {
 
@@ -115,7 +117,7 @@ module.exports = {
 
 ## Router prefix
 
-Keep in mind routes can automatically be prefixed in `./config/global.json` with the `prefix` key.
+Keep in mind routes can automatically be prefixed in `./config/general.json` with the `prefix` key.
 Let an empty string if you don't want to prefix your API. The prefix must starts with a `/`, e.g. `/api`.
 
 ## Policies and route process
@@ -139,7 +141,7 @@ If the policy allows the request, then the `show` action from the `Post` control
   {
     "routes": {
       "DELETE /post/:id": {
-        "controller": "PostController",
+        "controller": "Post",
         "action": "delete",
         "policies": ["isAdmin"]
       }

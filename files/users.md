@@ -71,7 +71,7 @@ Strapi comes with five providers:
 - LinkedIn
 
 To use the providers authentication, set your credentials in
-`./config/environments/development/grant.json`.
+`./api/user/config/environments/development/grant.json`.
 
 Redirect your user to: `GET /connect/:provider`.
 

@@ -6,16 +6,20 @@ requests between your clients and server applications.
 ## Configuration
 
 By default, GraphQL is enabled and the HTTP endpoint is `/graphql`.
-You can override this settings in the `./config/global.json` file.
+You can override this settings in the `./config/general.json` file.
 
 ```js
 {
   "graphql": {
-    "enabled": false|true, // Enabled or disabled GraphQL
-    "route": "/graphql" // Change GraphQL endpoint
+    "enabled": true,
+    "route": "/graphql"
   }
-}    
+}
 ```
+
+Options:
+- `enabled` (boolean): Enabled or disabled GraphQL.
+- `route` (string): Change GraphQL endpoint.
 
 Note: If GraphQL is disabled, the GraphQL global variable is not exposed.
 
@@ -73,7 +77,7 @@ An example of how to execute the same request as above with a HTTP request with 
 
 ```js
 $.get('http://yourserver.com/graphql?query={ users{firstName lastName posts{title}} }', function (data) {
-    console.log(data);
+  console.log(data);
 });
 ```
 
@@ -95,7 +99,6 @@ You can access to the 10 next users by adding the `skip` parameter:
 
 ```js
 const query = '{ users(limit: 10, sort: "firstName ASC", skip: 10){firstName lastName posts{title}} }';
-
 ```
 
 And you also can select those records in a period between two dates with the `start` and `end` parameters:

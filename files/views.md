@@ -6,7 +6,7 @@ In most cases, views are used as the response to an incoming HTTP request.
 By default, Strapi doesn't use views. The philosophy of the framework is to
 separate the reusable backend application logic from the frontend.
 
-If you want to activate views, set the `views` in `./config/global.json`.
+If you want to activate views, set the `views` in `./config/general.json`.
 
 For example, if you want to use `lodash` for `.html` files and use it by default,
 you may set up your `views` object as below:

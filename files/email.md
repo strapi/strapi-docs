@@ -5,20 +5,27 @@ famous email node module: [Nodemailer](http://nodemailer.com).
 
 ## Email config
 
-To change the email config, edit the `/config/global.json` file.
+To change the STMP config, edit the `./api/email/config/environments/development/smtp.json` file.
 
 ```js
 {
   "smtp": {
-    "from": "test<no-reply@test.com>", // The email address used to send emails.
+    "from": "test<no-reply@test.com>",
     "service": {
-      "name": "", // Name of the service used to send emails (eg. `Gmail`).
-      "user": "", // Username of the service used (eg. `john@gmail.com`).
-      "pass": "" // Password of the username used (eg. `12356`).
+      "name": "",
+      "user": "",
+      "pass": ""
     }
   }
 }
 ```
+
+Options:
+- `from` (string): The email address used to send emails.
+- `service` (object): The SMTP service info:
+  - `name` (string): Name of the service used to send emails (eg. `Gmail`).
+  - `user` (string): Username of the service used (eg. `john@gmail.com`).
+  - `pass` (string): Password of the username used (eg. `12356`).
 
 ## Email service
 
