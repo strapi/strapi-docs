@@ -477,9 +477,11 @@ Enable or disable auto-reload when your application crashes.
 Options:
 - `timeout` (integer): Set the timeout before killing a worker in ms.
 - `workers` (integer): Set the number of workers to spawn.
+  If the `workers` key is not defined, Strapi will use every free CPU
+  (recommended in `production` environement).
 
 Notes:
-- Set to `false` to disable the auto-reload.
+- Set to `false` to disable the auto-reload and clustering features.
 
 ## Request
 
