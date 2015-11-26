@@ -20,6 +20,7 @@ Table of contents:
 - [Context](files/context.md)
 - [Request](files/request.md)
 - [Response](files/response.md)
+- [Admin](files/admin.md)
 - [Users](files/users.md)
 - [Email](files/email.md)
 - [Upload](files/upload.md)

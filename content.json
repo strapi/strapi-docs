@@ -16,6 +16,7 @@
     "context",
     "request",
     "response",
+    "admin",
     "users",
     "email",
     "upload",
