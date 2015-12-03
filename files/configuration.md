@@ -645,6 +645,43 @@ Notes:
 
 ## Security
 
+### Sessions
+
+Since HTTP driven applications are stateless, sessions provide a way to store information
+about the user across requests.
+
+Strapi provides "guest" sessions, meaning any visitor will have a session,
+authenticated or not. If a session is new a `Set-Cookie` will be produced regardless
+of populating the session.
+
+Strapi only supports cookie sessions, for now.
+
+- Key: `session`
+- Environment: `development`
+- Location: `./config/environments/development/security.json`
+- Type: `object`
+- Defaults to:
+
+  ```js
+  {
+    "session": {
+      "key": "myApp",
+      "secretKeys": [
+        "mySecretKey1"
+      ],
+      "maxAge": 86400000
+    }
+  }
+  ```
+
+Options:
+- `key` (string): The cookie name.
+- `secretKeys` (array): Keys used to encrypt the session cookie.
+- `maxAge` (integer): Sets the time in seconds for when a cookie will be deleted.
+
+Notes:
+- Set to `false` to disable sessions.
+
 ### Cross Site Request Forgery (CSRF) headers
 
 CSRF is a type of attack which forces an end user to execute unwanted actions on a web
