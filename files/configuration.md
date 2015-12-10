@@ -555,7 +555,7 @@ Enable or disable Gzip compression.
 
   ```js
   {
-    "gzip": false
+    "gzip": true
   }
   ```
 
