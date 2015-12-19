@@ -34,7 +34,7 @@ The email service allows you to easily send emails from anywhere in your applica
 Usage as a promise (yieldable) :
 
 ```js
-strapi.api.email.service.email.send({
+strapi.api.email.services.email.send({
     from: 'contact@company.com', // Sender (defaults to `strapi.config.smtp.from`).
     to: ['john@doe.com'], // Recipients list.
     html: '<p>Hello John</p>', // HTML version of the email content.
@@ -51,7 +51,7 @@ strapi.api.email.service.email.send({
 Usage with a callback :
 
 ```js
-strapi.api.email.service.email.send({
+strapi.api.email.services.email.send({
     from: 'contact@company.com', // Sender (defaults to `strapi.config.smtp.from`).
     to: ['john@doe.com'], // Recipients list.
     html: '<p>Hello John</p>', // HTML version of the email content.
