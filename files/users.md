@@ -125,3 +125,8 @@ Response payload:
   "jwt": ""
 }
 ```
+
+
+## Accessing user from requests.
+
+If you want to access attributes of the logged in user, you can use `this.user` inside of your controller action. 
