@@ -14,7 +14,7 @@ Request payload:
 
 ```js
 {
-  "username": "John DOE"
+  "username": "John DOE",
   "email": "contact@company.com",
   "password": "123456"
 }
