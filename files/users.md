@@ -63,10 +63,11 @@ example in the `localstorage`), and sent within each request. The token can be s
 
 Thanks to [Grant](https://github.com/simov/grant) and [Purest](https://github.com/simov/purest), you can easily use OAuth and OAuth2
 providers to enable authentication in your application. By default,
-Strapi comes with five providers:
+Strapi comes with four providers:
 - Facebook
 - Google
-- Twitter
+- Github
+- Linkedin2 (Oauth2 Provider for Linkedin)
 
 To use the providers authentication, set your credentials in
 `./api/user/config/environments/development/grant.json`.
