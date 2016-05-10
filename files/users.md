@@ -65,10 +65,8 @@ Thanks to [Grant](https://github.com/simov/grant) and [Purest](https://github.co
 providers to enable authentication in your application. By default,
 Strapi comes with five providers:
 - Facebook
-- Twitter
 - Google
-- GitHub
-- LinkedIn
+- Twitter
 
 To use the providers authentication, set your credentials in
 `./api/user/config/environments/development/grant.json`.
