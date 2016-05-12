@@ -25,6 +25,7 @@ Table of contents:
 - [Email](files/email.md)
 - [Upload](files/upload.md)
 - [Customization](files/customization.md)
+- [Testing](files/testing.md)
 
 ## Resources
 
