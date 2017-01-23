@@ -135,7 +135,7 @@ together as you like. In fact they're designed to be used this way. Ideally, eac
 function should really check just one thing.
 
 For example to access `DELETE /post/:id`, the request will go through the `isAdmin` policy first.
-If the policy allows the request, then the `show` action from the `Post` controller is executed.
+If the policy allows the request, then the `delete` action from the `Post` controller is executed.
 
 ```js
   {
