@@ -16,10 +16,6 @@ together to provide simplicity, maintainability, and structural conventions to N
 
 ## Getting Started
 
-### Prerequisites
-
-Strapi needs node.js 4.0 to run. Newer node.js versions will be supported in the upcoming Strapi 3.0
-
 ### Installation
 
 Install the latest stable release with the npm command-line tool:
