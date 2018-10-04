@@ -31,9 +31,20 @@ List, edit and delete the users information of your application.
 
 ### Roles
 
-Each user can be related to one or many roles.
+Each user can be related to one role.
 
-The first registered user is automatically related to the `admin` role.
+The first registered user is automatically related to the `administrator` role.
+
+By default strapi creates three roles:
+- `Public`.
+- `Authenticated`.
+- `Administrator`
+
+![Strapi Roles](https://user-images.githubusercontent.com/1679438/46508415-b0659980-c7fa-11e8-8188-63f77bf6ee36.png)
+
+Only users related to the `administrator` role can access the admin panel.
+
+The roles `Authenticated` and `Public` have no permissions by default, it is up to you to assign the right access permissions for the routes of your server for those roles or roles you create in the future 
 
 ### Permissions
 
@@ -41,12 +52,12 @@ Strapi contains a security system based on the routes of your application.
 The admin panel allows you to visualize the different routes of your server and
 to manage the security of each of them.
 
-- `Public`: no level of security (anyone can use the route).
-- `Registered`: the user has to be logged to use the route.
-- `Owner`: the user must be one of the `contributors` of the `model` updated or deleted.
-- `Admin`: only the users related to the `admin` role are allowed to access the route.
+Under the Roles & Permissions tab, you can click on any of the roles listed except for the `Administrator` role.
 
-![Strapi Admin panel Screenshot Permissions](http://strapi.io/assets/screenshots/permissions.png "Strapi Admin panel Screenshot Permissions")
+The permissions edit page will open, where you can specify up to what extent that role has access to the API endpoints of a given model
+
+![Strapi Roles & Permissions](https://user-images.githubusercontent.com/1679438/46508553-37b30d00-c7fb-11e8-99e8-c323239d7e98.png)
+
 
 ## Customization
 
